@@ -7,7 +7,7 @@ class Vehicle extends React.Component {
     let hero = camera.urlImage;
 
     return (
-      <Link to={`/details/${id}`} className="pet">
+      <Link to={`/details/${serial}`} className="pet">
         <div className="image-container">
           <img src={hero} alt={name} />
         </div>

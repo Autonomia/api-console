@@ -16,20 +16,20 @@ class Devices extends React.Component {
     // get list of vehicles in the application
     autonomia.vehicles.list()
     .then (data => {
-      console.log(data);
+      console.log("vehicles", data);
       this.setState({ vehicles: data });
 
       // testing vehicle get
       autonomia.vehicles.get(this.state.vehicles[0].serial)
         .then (d => {
-          console.log(d);
+          console.log("device", d);
           console.log("category", d.category, d.category.name);
           // testing videos get
           let end_date = new Date().toISOString();  // now in UTC timezone and ISO format
           let start_date = end_date.split('T')[0] + "T00:00:00.000Z";   // midnight of today UTC and ISO
           autonomia.vehicles.videos(this.state.vehicles[0].serial, 1, start_date, end_date)
             .then(v => {
-              console.log(v);
+              console.log("videos", v);
             })
         })
       // -- end testing
